@@ -29,7 +29,8 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 <a href="https://512kb.club"><img src="https://512kb.club/assets/images/orange-team.svg"
                alt="a proud member of the green team of 512KB club" /></a>
-               [![wakatime](https://wakatime.com/badge/user/018eed1d-6093-4f51-9fca-7863b7a1ac97/project/89c4bc50-59c0-405b-9374-6d9cce1cd478.svg)](https://wakatime.com/badge/user/018eed1d-6093-4f51-9fca-7863b7a1ac97/project/89c4bc50-59c0-405b-9374-6d9cce1cd478)
+[![wakatime](https://wakatime.com/badge/user/018eed1d-6093-4f51-9fca-7863b7a1ac97/project/89c4bc50-59c0-405b-9374-6d9cce1cd478.svg)](https://wakatime.com/badge/user/018eed1d-6093-4f51-9fca-7863b7a1ac97/project/89c4bc50-59c0-405b-9374-6d9cce1cd478)
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -81,6 +82,7 @@
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 Epic retro site
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
 
@@ -93,6 +95,7 @@ Make sure you have nodejs installled.
   bun install
   ```
 - dev mode
+
 ```
  bun dev
 
@@ -147,7 +150,6 @@ Project Link: [https://github.com/NeonGamerBot-QK/retro-site](https://github.com
 
 - [512kb](https://512kb.club/)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -188,16 +190,16 @@ if(!window.button_collection) window.button_collection = []
 setInterval(() => {
 const els = Array.from(document.querySelector('.compact-button-grid').children).filter(e => !e.getAttribute('data-tagged'))
 els.forEach((el) => {
-  el.oncontextmenu = () => {
-    const imgTag = el.querySelector('img')
-    let obj = {
-      name: imgTag.src.split('/i/')[1],
-      url: imgTag.src
-    }
-    console.log(obj)
-    window.button_collection.push(obj);
-  }
-  el.setAttribute('data-tagged', true)
- })
+el.oncontextmenu = () => {
+const imgTag = el.querySelector('img')
+let obj = {
+name: imgTag.src.split('/i/')[1],
+url: imgTag.src
+}
+console.log(obj)
+window.button_collection.push(obj);
+}
+el.setAttribute('data-tagged', true)
+})
 }, 50)
 })()
