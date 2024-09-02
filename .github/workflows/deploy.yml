@@ -1,0 +1,30 @@
+name: remote ssh command
+on: [push]
+
+jobs:
+
+  build:
+    name: Build & deploy
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+    - name: Set Short SHA
+      id: short_sha
+      run: |
+        echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.8
+      with:
+        context: .
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+            cd /${{ secrets.USERNAME }}
+            export BUILD_SHA=${{ steps.short_sha.outputs.short_sha }}
+            export BUILD_ID=${{ github.run_id }}
+            export BUILD_NUM=${{ github.run_number }}
+            PUBLIC_URL=/retro bash ./deploy_project.sh  ${{ github.event.repository.name }} retro "bun install" "bun run build"

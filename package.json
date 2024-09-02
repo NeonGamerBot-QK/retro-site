@@ -1,0 +1,22 @@
+{
+  "name": "retro-site",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun run sync-badges && bun run build:files",
+    "dev": "bun run scripts/dev.ts",
+    "build:files": "bun run scripts/build.ts",
+    "sync-badges": "bun run scripts/sync-badges.ts",
+    "start": "serve ./build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "php": "^1.1.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}

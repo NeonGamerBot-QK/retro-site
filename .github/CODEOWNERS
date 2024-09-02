@@ -4,7 +4,4 @@
 .github/CODEOWNERS @zeon-neon @NeonGamerBot-QK
 # Zeons directory
 /zeon/ @zeon-neon
-.create_funding @NeonGamerBot-QK
-.create_mit @NeonGamerBot-QK
-.create_readme @NeonGamerBot-QK
-.example_cmd @NeonGamerBot-QK
+* @NeonGamerBot-QK
