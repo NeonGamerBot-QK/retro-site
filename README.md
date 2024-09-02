@@ -118,6 +118,30 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+#### *tip for also easily adding buttons*
+
+```js
+;(async () => {
+if(!window.button_collection) window.button_collection = []
+setInterval(() => {
+const els = Array.from(document.querySelector('.compact-button-grid').children).filter(e => !e.getAttribute('data-tagged'))
+els.forEach((el) => {
+el.oncontextmenu = () => {
+const imgTag = el.querySelector('img')
+let obj = {
+name: imgTag.src.split('/i/')[1],
+url: imgTag.src
+}
+console.log(obj)
+window.button_collection.push(obj);
+}
+el.setAttribute('data-tagged', true)
+})
+}, 50)
+})()
+
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Top contributors:
@@ -185,21 +209,3 @@ Project Link: [https://github.com/NeonGamerBot-QK/retro-site](https://github.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
 
-;(async () => {
-if(!window.button_collection) window.button_collection = []
-setInterval(() => {
-const els = Array.from(document.querySelector('.compact-button-grid').children).filter(e => !e.getAttribute('data-tagged'))
-els.forEach((el) => {
-el.oncontextmenu = () => {
-const imgTag = el.querySelector('img')
-let obj = {
-name: imgTag.src.split('/i/')[1],
-url: imgTag.src
-}
-console.log(obj)
-window.button_collection.push(obj);
-}
-el.setAttribute('data-tagged', true)
-})
-}, 50)
-})()
