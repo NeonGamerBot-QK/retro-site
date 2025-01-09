@@ -1,12 +1,12 @@
 {
-  "name": "retro-site",
-  "module": "index.ts",
+  "name": "qr-site",
+  "module": "src/index.php",
   "type": "module",
   "scripts": {
-    "build": "bun run sync-badges && bun run build:files",
+    "build": "bun run build:files && bun run minify",
     "dev": "bun run scripts/dev.ts",
     "build:files": "bun run scripts/build.ts",
-    "sync-badges": "bun run scripts/sync-badges.ts",
+    "minify": "bun run scripts/minify.ts",
     "start": "serve ./build"
   },
   "devDependencies": {
@@ -17,6 +17,9 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "serve": "^14.2.3"
+    "html-minifier": "^4.0.0",
+    "qrcode": "^1.5.4",
+    "serve": "^14.2.3",
+    "sharp": "^0.33.5"
   }
 }
